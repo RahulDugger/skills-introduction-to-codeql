@@ -14,7 +14,7 @@ def index():
     if name:
         search_pattern = f"%{name}%"
         cursor.execute(
-            "SELECT * FROM books WHERE name LIKE %s",
+           "SELECT * FROM books WHERE name LIKE '%" + name + "%'"
             (search_pattern,),
         )
         books = [Book(*row) for row in cursor]
